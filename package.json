@@ -1,0 +1,73 @@
+{
+  "name": "gocover",
+  "displayName": "Go Cover",
+  "description": "Cover all packages with one single test",
+  "version": "1.0.0",
+  "publisher": "oatcat",
+  "icon": "images/logo.jpg",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["go"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luckycatx/vscode-go-cover.git"
+  },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gocover.test.cursor",
+        "title": "Go Cover: Test Function At Cursor"
+      },
+      {
+        "command": "gocover.test.file",
+        "title": "Go Cover: Test File"
+      },
+      {
+        "command": "gocover.test.package",
+        "title": "Go Cover: Test Package"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorLangId == 'go' && resourceExtname == '.go'",
+          "command": "gocover.test.cursor",
+          "group": "gocover"
+        },
+        {
+          "when": "editorLangId == 'go' && resourceExtname == '.go'",
+          "command": "gocover.test.file",
+          "group": "gocover"
+        },
+        {
+          "when": "editorLangId == 'go' && resourceExtname == '.go'",
+          "command": "gocover.test.package",
+          "group": "gocover"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.98.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint": "^9.21.0",
+    "typescript": "^5.7.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
