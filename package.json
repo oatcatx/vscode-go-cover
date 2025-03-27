@@ -12,7 +12,7 @@
   "keywords": ["go"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/luckycatx/vscode-go-cover.git"
+    "url": "https://github.com/oatcatx/vscode-go-cover.git"
   },
   "activationEvents": [],
   "main": "./out/extension.js",
